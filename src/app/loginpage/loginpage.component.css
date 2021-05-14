@@ -1,0 +1,51 @@
+
+
+.wrapper{
+    margin-top: 80px;
+    border: 2px solid black;
+    width:400px;
+    height:550px;
+    padding: 30px;
+    background-image: url(imagess/template3.jpg)
+    
+}
+.contain{
+    display: flex;
+    justify-content: center;
+    height: 700px;
+    
+}
+.same{
+    margin-top: 60px;
+    border: 2px solid ;
+}
+img{
+    width:10%;
+}
+.bttn{
+    margin-left: 90px;
+    width:180px;
+}
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+}
+h1.MAINHEAD{
+    display: flex;
+    justify-content: center;
+    color:navy;
+}
+
+body{
+background-color:peachpuff;
+}
+
+#welhead{
+    position: relative;
+    left: 20px;
+}
+h2{
+    display: flex;
+    justify-content: center;
+    color: navy;
+}

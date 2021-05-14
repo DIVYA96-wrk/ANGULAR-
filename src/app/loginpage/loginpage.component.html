@@ -1,0 +1,49 @@
+<body>
+    
+
+<h1 class="MAINHEAD"><span id="welhead">WELCOME TO ACC BANK</span> </h1> <h2> <span class="heads"><br> LOGIN PAGE..</span>  </h2>
+<div class="container contain ">
+    
+       
+        
+
+       
+    <div class="wrapper">
+
+
+
+            <h1> <img src="imagess/acclogo.png" alt="" > <strong>ACC BANK</strong> <br> {{aim}}</h1>
+            <form action="">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control same acc" id="acc" [value]="acc" #accno placeholder="name@example.com" >
+                    <label for="floatingInput">Account No</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control same use" id="use" [value]="use" #uname placeholder="name@example.com" >
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control same pass" id="pass" [value]="pass" #pswd placeholder="Password" >
+                    <label for="floatingPassword">Password</label>
+                </div><br><br>
+                <div>
+                    <button type="button" class="btn btn-primary btn-lg bttn" (click)="login(accno,uname,pswd)">Log in</button> 
+                </div>
+                
+
+
+
+
+
+
+
+
+            </form> 
+            
+
+        </div>
+
+
+    </div>
+</body>
