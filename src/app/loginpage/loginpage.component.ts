@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loginpage',
@@ -23,7 +24,7 @@ export class LoginpageComponent implements OnInit {
     1003:{acno:1003,actype:"current",username:"userfour",password:"userfour",balance:6000}
 }
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -33,14 +34,15 @@ export class LoginpageComponent implements OnInit {
     var acno= this.acc;
     var pswd= this.pass;
     var uname=this.use;
-    console.log(uname);
+    console.log(acno,pswd);
     
     
     let users=this.userdetails;
     if(acno in users)
     {
         if(uname==users[acno]["username"] && pswd==users[acno]["password"]){
-           alert("login succes")
+           alert("login succes");
+           this.router.navigateByUrl('dashboard');
         }
 
         else{
@@ -52,7 +54,11 @@ export class LoginpageComponent implements OnInit {
     }
   }
 
-  accChange(event:any){
+  register(){
+    this.router.navigateByUrl("register page")
+  }
+
+ /* accChange(event:any){
     this.acc=event.target.value;
     console.log(this.acc);
     
@@ -68,6 +74,6 @@ export class LoginpageComponent implements OnInit {
     this.use=event.target.value;
     console.log(this.use);
     
-  } 
+  }  */
 
 }
