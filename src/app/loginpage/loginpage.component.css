@@ -4,7 +4,7 @@
     margin-top: 80px;
     border: 2px solid black;
     width:400px;
-    height:550px;
+    height:600px;
     padding: 30px;
     background-image: url(imagess/template3.jpg)
     
@@ -29,6 +29,9 @@ img{
 h1{
     font-family: 'Times New Roman', Times, serif;
     font-weight: 900;
+    padding: 6px;
+    padding-left: 40px;
+ 
 }
 h1.MAINHEAD{
     display: flex;
@@ -48,4 +51,9 @@ h2{
     display: flex;
     justify-content: center;
     color: navy;
+}
+h5{
+    color:floralwhite;
+    display: flex;
+    justify-content: center;
 }

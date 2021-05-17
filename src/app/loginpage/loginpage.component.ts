@@ -27,13 +27,14 @@ export class LoginpageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  login(a:any,u:any,p:any){
+  login(){
     
 
-    var acno= a.value;
-    var pswd= p.value;
-    var uname=u.value;
+    var acno= this.acc;
+    var pswd= this.pass;
+    var uname=this.use;
     console.log(uname);
+    
     
     let users=this.userdetails;
     if(acno in users)
@@ -51,7 +52,7 @@ export class LoginpageComponent implements OnInit {
     }
   }
 
-  /*accChange(event:any){
+  accChange(event:any){
     this.acc=event.target.value;
     console.log(this.acc);
     
@@ -67,6 +68,6 @@ export class LoginpageComponent implements OnInit {
     this.use=event.target.value;
     console.log(this.use);
     
-  } */
+  } 
 
 }
