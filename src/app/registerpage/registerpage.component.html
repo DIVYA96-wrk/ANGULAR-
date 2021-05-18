@@ -13,23 +13,28 @@
 
 
             <h1> <img src="C:\Users\Divya\Desktop\angular\BankAppl\src\app\loginpage\imagess\acclogo.png" alt="" > <strong>ACC BANK</strong> <br> <h5>Register here</h5></h1>
-            <form action="">
+            <form action="" (ngSubmit)="register()">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same acc" id="acc" [value]="acc"   placeholder="name@example.com" >
+                    <input type="text" class="form-control same acc" id="acc" [value]="acc" name="name1" [(ngModel)]="acc" placeholder="name@example.com" >
                     <label for="floatingInput">Account No</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same use" id="use" [value]="use" placeholder="name@example.com" >
+                    <input type="text" class="form-control same use" id="use" [value]="use" name="name2" [(ngModel)]="use"  placeholder="name@example.com" >
                     <label for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control same pass" id="pass"  placeholder="Password" >
+                    <input type="password" class="form-control same pass" id="pass" [value]="pass" name="name3" [(ngModel)]="pass" placeholder="Password" >
                     <label for="floatingPassword">Password</label>
                 </div><br><br>
                
-                <div>
-                    <button type="button" class="btn btn-primary btn-lg bttn" (click)=register()>register</button> 
+                <div >
+                    <button type="submit" class="btn btn-primary btn-lg bttn" >register</button> <br><br>
+                    <div >
+                       <p class="one">Already have account? If,yes please log in </p> 
+                       <a href="" class="one" >    LOGIN</a>
+                    </div>
+                    
                 </div>
                 
 

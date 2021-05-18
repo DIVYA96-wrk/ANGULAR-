@@ -13,7 +13,7 @@
 
 
             <h1> <img src="imagess/acclogo.png" alt="" > <strong>ACC BANK</strong> <br> <h5>{{aim}}</h5></h1>
-            <form action="">
+            <form action="" (ngSubmit)="login()">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control same acc" id="acc" [value]="acc" [(ngModel)]="acc" name="account number"  placeholder="name@example.com" >
                     <label for="floatingInput">Account No</label>
@@ -28,7 +28,7 @@
                     <label for="floatingPassword">Password</label>
                 </div><br><br>
                 <div>
-                    <button type="button" class="btn btn-primary btn-lg bttn" (click)="login()">Log in</button> 
+                    <button type="submit" class="btn btn-primary btn-lg bttn" >Log in</button> 
                 </div>
                 <br>
                 <div>
