@@ -15,12 +15,12 @@
             <h1> <img src="imagess/acclogo.png" alt="" > <strong>ACC BANK</strong> <br> <h5>{{aim}}</h5></h1>
             <form action="" (ngSubmit)="login()">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same acc" id="acc" [value]="acc" [(ngModel)]="acc" name="account number"  placeholder="name@example.com" >
+                    <input type="text" class="form-control same acc" id="acc"  [(ngModel)]="acc" name="account number"  placeholder="name@example.com" >
                     <label for="floatingInput">Account No</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same use" id="use" [value]="use"[(ngModel)]="use" name="username" placeholder="name@example.com" >
+                    <input type="text" class="form-control same use" id="use" [(ngModel)]="use" name="username" placeholder="name@example.com" >
                     <label for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating">

@@ -61,6 +61,53 @@ export class DataserviceService {
     }
   }
 
+  deposit(acno:any,pass:any,amt:any){
+    var amount=parseInt(amt);
+    let user=this.userdetails;
+    if(acno in user)
+    {
+      if(pass=user[acno]["password"]){
+        user[acno]["balance"]+=amount;
+        return user[acno]["balance"];
+        }
+        else{
+          alert("invalid pass word")
+          return false;
+        }}
+
+        else{
+          alert("invalid account number");
+          return false;
+        }
+
+
+  }
+  withdraw(acno:any,pass:any,amt:any){
+    var amount=parseInt(amt);
+    let user=this.userdetails;
+    if(acno in user)
+    {
+      if(pass=user[acno]["password"]){
+        if(user[acno]["balance"]>=amount){
+        user[acno]["balance"]-=amount;
+        return user[acno]["balance"];}
+        else{
+          alert("insufficient balance")
+        }
+        }
+        else{
+          alert("invalid pass word")
+          return false;
+        }}
+
+        else{
+          alert("invalid account number");
+          return false;
+        }
+
+
+  }
+
 
 
 

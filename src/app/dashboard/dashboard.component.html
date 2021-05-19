@@ -14,23 +14,23 @@
 
 
             <h2>  <strong>DEPOSIT  FORM</strong> </h2>
-            <form action="">
+            <form (ngSubmit)="deposit()">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same acc" id="acc" placeholder="name@example.com" >
+                    <input type="text" class="form-control same acc" id="acc" [(ngModel)]="dAcno" name="account" placeholder="name@example.com" >
                     <label for="floatingInput">Account No</label>
                 </div>
 
                
                 <div class="form-floating">
-                    <input type="password" class="form-control same pass" id="pass" placeholder="Password" >
+                    <input type="password" class="form-control same pass" id="pass"[(ngModel)]="dpass" name="pass"  placeholder="Password" >
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same amn" id="amn" placeholder="name@example.com" >
+                    <input type="text" class="form-control same amn" id="amn"[(ngModel)]="dAmn" name="amount"  placeholder="name@example.com" >
                     <label for="floatingInput">Amount</label>
                 </div><br><br>
                 <div>
-                    <button type="button" class="btn btn-primary btn-lg bttn" onclick="Bank.login()">DEPOSIT</button> 
+                    <button type="submit" class="btn btn-primary btn-lg bttn" >DEPOSIT</button> 
                 </div>
                 
 
@@ -53,23 +53,23 @@
                 
     
                 <h2> <strong>WITHDRAW  FORM</strong> </h2>
-                <form action="">
+                <form (ngModel)="withdraw()">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control same acc" id="acc" placeholder="name@example.com" >
+                        <input type="text" class="form-control same acc" id="acc" [(ngModel)]="dAacno" name="accoun" placeholder="name@example.com" >
                         <label for="floatingInput">Account No</label>
                     </div>
     
                     
                     <div class="form-floating">
-                        <input type="password" class="form-control same pass" id="pass" placeholder="Password" >
+                        <input type="password" class="form-control same pass" id="pass" [(ngModel)]="dppass" name="pas"placeholder="Password" >
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control same amn" id="amn" placeholder="name@example.com" >
+                        <input type="text" class="form-control same amn" id="amn" [(ngModel)]="dAmmn" name="ammoun" placeholder="name@example.com" >
                         <label for="floatingInput">Amount</label>
                     </div><br><br>
                     <div>
-                        <button type="button" class="btn btn-primary btn-lg bttn" onclick="Bank.login()">WITHDRAW</button> 
+                        <button type="submit" class="btn btn-primary btn-lg bttn" >WITHDRAW</button> 
                     </div>
                     
     
