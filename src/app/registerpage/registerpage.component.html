@@ -1,52 +1,53 @@
 <body>
-    
 
-<h1 class="MAINHEAD"><span id="welhead">WELCOME TO ACC BANK</span> </h1> <h2> <span class="heads"><br> REGISTRATION PAGE..</span>  </h2>
-<div class="container contain ">
-    
-       
-        
 
-       
-    <div class="wrapper">
+    <h1 class="MAINHEAD"><span id="welhead">WELCOME TO ACC BANK</span> </h1>
+    <h2> <span class="heads"><br> REGISTRATION PAGE..</span> </h2>
+    <div class="container-fluid contain ">
 
 
 
-            <h1> <img src="C:\Users\Divya\Desktop\angular\BankAppl\src\app\loginpage\imagess\acclogo.png" alt="" > <strong>ACC BANK</strong> <br> <h5>Register here</h5></h1>
-            <form action="" (ngSubmit)="register()">
+
+
+        <div class="wrapper">
+
+
+
+            <h1> <img src="C:\Users\Divya\Desktop\angular\BankAppl\src\app\loginpage\imagess\acclogo.png" alt="">
+                <strong>ACC BANK</strong> <br> <br>
+                <h5>Please Register here</h5>
+            </h1>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same acc" id="acc" [value]="acc" name="name1" [(ngModel)]="acc" placeholder="name@example.com" >
+                    <input type="text" class="form-control same acc" formControlName="acc" id="acc"
+                        name="name1"  placeholder="name@example.com">
                     <label for="floatingInput">Account No</label>
                 </div>
+                <div  *ngIf="(registerForm.get('acc')?.touched || registerForm.get('acc')?.dirty) && registerForm.get('acc')?.errors"class="error">Invalid Account number</div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same use" id="use" [value]="use" name="name2" [(ngModel)]="use"  placeholder="name@example.com" >
+                    <input type="text" class="form-control same use" formControlName="use" id="use"
+                        name="name2"  placeholder="name@example.com">
                     <label for="floatingInput">Username</label>
                 </div>
+                <div *ngIf="(registerForm.get('use')?.touched || registerForm.get('use')?.dirty) && registerForm.get('use')?.errors" class="error">Invalid Username</div>
                 <div class="form-floating">
-                    <input type="password" class="form-control same pass" id="pass" [value]="pass" name="name3" [(ngModel)]="pass" placeholder="Password" >
-                    <label for="floatingPassword">Password</label>
-                </div><br><br>
-               
-                <div >
-                    <button type="submit" class="btn btn-primary btn-lg bttn" >register</button> <br><br>
-                    <div >
-                       <p class="one">Already have account? If,yes please log in </p> 
-                       <a href="" class="one" >    LOGIN</a>
+                    <input type="password" class="form-control same pass" formControlName="pass" id="pass"
+                         name="name3"  placeholder="Password">
+                    <label for="floatingPassword">Password</label> </div>
+                    <div *ngIf="(registerForm.get('pass')?.touched || registerForm.get('pass')?.dirty) && registerForm.get('pass')?.errors" class="error">Invalid PASSWORD</div> <br>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-lg bttn">register</button> <br><br>
+                        <div>
+                            <p class="one">Already have account? If,yes please log in </p>
+                            <a href="" class="one"> LOGIN</a>
+                        </div>
+
                     </div>
-                    
-                </div>
-                
 
+             </form>
 
-
-
-
-
-
-
-            </form> 
-            
 
         </div>
 

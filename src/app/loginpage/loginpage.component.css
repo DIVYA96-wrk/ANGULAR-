@@ -4,7 +4,7 @@
     margin-top: 80px;
     border: 2px solid black;
     width:400px;
-    height:700px;
+    height:800px;
     padding: 30px;
     background-image: url(imagess/template3.jpg)
     
@@ -12,7 +12,7 @@
 .contain{
     display: flex;
     justify-content: center;
-    height: 700px;
+    height: inherit;
     
 }
 .same{
@@ -41,7 +41,7 @@ h1.MAINHEAD{
 
 body{
 background-color:peachpuff;
-height: 1000px;
+height: 100%;
 }
 
 #welhead{
@@ -57,4 +57,7 @@ h5{
     color:floralwhite;
     display: flex;
     justify-content: center;
+}
+.error{
+    color: white;
 }

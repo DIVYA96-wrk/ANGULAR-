@@ -2,7 +2,7 @@
     margin-top: 80px;
     border: 2px solid black;
     width:400px;
-    height:700px;
+    height:850px;
     padding: 30px;
     background-image: url(C:\Users\Divya\Desktop\angular\BankAppl\src\app\loginpage\imagess\template3.jpg)
     
@@ -10,7 +10,7 @@
 .contain{
     display: flex;
     justify-content: center;
-    height: 700px;
+    height: 1000px;
     
 }
 .same{
@@ -39,7 +39,7 @@ h1.MAINHEAD{
 
 body{
 background-color:peachpuff;
-height: 1000px;
+height: 100%;
 }
 
 #welhead{
@@ -64,4 +64,8 @@ a{
     color:white;
     font-size: 30px;
     
+}
+.error{
+    color:white;
+
 }

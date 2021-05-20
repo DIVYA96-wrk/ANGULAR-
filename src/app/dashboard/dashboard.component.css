@@ -63,3 +63,6 @@ h2{
     display: flex;
     justify-content: center;
 }
+.error{
+    color: white;
+}

@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataserviceService } from '../service/dataservice.service';
 
@@ -12,23 +13,25 @@ export class LoginpageComponent implements OnInit {
 
   aim = "Your perfect banking partner"
 
-  acc = "enter account number"
+ 
+  loginForm = this.fb.group({
+    use: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
+    acc: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+    pass: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]]
+  })
 
-  use = "enter username"
-
-  pass = ""
 
 
-  constructor(private router: Router, private dataservice: DataserviceService) { }
+  constructor(private router: Router, private dataservice: DataserviceService,private  fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
   login() {
 
-
-    var acno = this.acc;
-    var pswd = this.pass;
-    var uname = this.use;
+    if (this.loginForm.valid) {
+    var acno = this.loginForm.value.acc;
+    var pswd = this.loginForm.value.pass;
+    var uname = this.loginForm.value.use;
     console.log(acno, pswd);
 
 
@@ -40,7 +43,10 @@ export class LoginpageComponent implements OnInit {
     }
 
 
-  }
+  } 
+else{
+  alert("invalid form")
+}}
 
   register() {
     this.router.navigateByUrl("register page")

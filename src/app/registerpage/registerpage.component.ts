@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataserviceService } from '../service/dataservice.service';
 
@@ -9,30 +10,41 @@ import { DataserviceService } from '../service/dataservice.service';
 })
 
 export class RegisterpageComponent implements OnInit {
-  acc=""
 
-  use=""
 
-  pass=""
+  registerForm = this.fb.group({
+    use: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
+    acc: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+    pass: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]]
+  })
 
-  constructor( private dataservice:DataserviceService,private router:Router) { }
+  constructor(private dataservice: DataserviceService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
-  register(){
-    var acc=this.acc;
-    var use=this.use;
-    var pass=this.pass;
-    const result=this.dataservice.registerIndata(acc,use,pass);
-     if(result ==true)
-     {
-      alert("succesfully registered");
-     
-      
-      this.router.navigateByUrl("")
-     }
-     else{
-      alert("aleready existing account number, please log in ")
-     }
+  register() {
+
+    
+
+    if (this.registerForm.valid) {
+      var acc = this.registerForm.value.acc;
+      var use = this.registerForm.value.use;
+      var pass = this.registerForm.value.pass;
+      const result = this.dataservice.registerIndata(acc, use, pass);
+      if (result == true) {
+        alert("succesfully registered");
+        this.router.navigateByUrl("")
+      }
+      else {
+        alert("already existing account number, please log in ")
+      }
     }
+    else{
+      alert("INVALID FORM")
+    }
+
   }
+}
+
+
+

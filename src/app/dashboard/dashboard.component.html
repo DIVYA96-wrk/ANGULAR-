@@ -14,21 +14,27 @@
 
 
             <h2>  <strong>DEPOSIT  FORM</strong> </h2>
-            <form (ngSubmit)="deposit()">
+            <form [formGroup]="dashboardForm1"(ngSubmit)="deposit()">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same acc" id="acc" [(ngModel)]="dAcno" name="account" placeholder="name@example.com" >
+                    <input type="text" class="form-control same acc" id="acc" formControlName="dAcno" name="account" placeholder="name@example.com" >
                     <label for="floatingInput">Account No</label>
                 </div>
+                <div *ngIf="(dashboardForm1.get('dAcno')?.touched || dashboardForm1.get('dAcno')?.dirty) && dashboardForm1.get('dAcno')?.errors"
+                class="error">Invalid Account number</div>
 
                
                 <div class="form-floating">
-                    <input type="password" class="form-control same pass" id="pass"[(ngModel)]="dpass" name="pass"  placeholder="Password" >
+                    <input type="password" class="form-control same pass" id="pass"formControlName="dpass" name="pass"  placeholder="Password" >
                     <label for="floatingPassword">Password</label>
                 </div>
+                <div *ngIf="(dashboardForm1.get('dpass')?.touched || dashboardForm1.get('dpass')?.dirty) && dashboardForm1.get('dpass')?.errors"
+                class="error">Invalid PASSWORD</div> <br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control same amn" id="amn"[(ngModel)]="dAmn" name="amount"  placeholder="name@example.com" >
+                    <input type="text" class="form-control same amn" id="amn"formControlName="dAmn" name="amount"  placeholder="name@example.com" >
                     <label for="floatingInput">Amount</label>
-                </div><br><br>
+                </div>
+                <div *ngIf="(dashboardForm1.get('dAmn')?.touched || dashboardForm1.get('dAmn')?.dirty) && dashboardForm1.get('dAmn')?.errors"
+                class="error">Invalid PASSWORD</div> <br><br><br>
                 <div>
                     <button type="submit" class="btn btn-primary btn-lg bttn" >DEPOSIT</button> 
                 </div>
@@ -53,21 +59,28 @@
                 
     
                 <h2> <strong>WITHDRAW  FORM</strong> </h2>
-                <form (ngModel)="withdraw()">
+                <form  [formGroup]="dashboardForm2" (ngSubmit)="withdraw()">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control same acc" id="acc" [(ngModel)]="dAacno" name="accoun" placeholder="name@example.com" >
+                        <input type="text" class="form-control same acc" id="acc" formControlName="dAacno" name="accoun" placeholder="name@example.com" >
                         <label for="floatingInput">Account No</label>
                     </div>
+                    <div *ngIf="(dashboardForm2.get('dAacno')?.touched || dashboardForm2.get('dAacno')?.dirty) && dashboardForm2.get('dAacno')?.errors"
+                    class="error">Invalid Account number</div>
     
                     
                     <div class="form-floating">
-                        <input type="password" class="form-control same pass" id="pass" [(ngModel)]="dppass" name="pas"placeholder="Password" >
+                        <input type="password" class="form-control same pass" id="pass" formControlName="dppass" name="pas"placeholder="Password" >
                         <label for="floatingPassword">Password</label>
                     </div>
+                    <div *ngIf="(dashboardForm2.get('dppass')?.touched || dashboardForm2.get('dppass')?.dirty) && dashboardForm2.get('dppass')?.errors"
+                    class="error">Invalid PASSWORD</div> <br>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control same amn" id="amn" [(ngModel)]="dAmmn" name="ammoun" placeholder="name@example.com" >
+                        
+                        <input type="text" class="form-control same amn" id="amn" formControlName="dAmmn" name="ammoun" placeholder="name@example.com" >
                         <label for="floatingInput">Amount</label>
-                    </div><br><br>
+                    </div>
+                    <div *ngIf="(dashboardForm2.get('dAmmn')?.touched || dashboardForm2.get('dAmmn')?.dirty) && dashboardForm2.get('dAmmn')?.errors"
+                    class="error">Invalid Amount</div><br><br>
                     <div>
                         <button type="submit" class="btn btn-primary btn-lg bttn" >WITHDRAW</button> 
                     </div>
