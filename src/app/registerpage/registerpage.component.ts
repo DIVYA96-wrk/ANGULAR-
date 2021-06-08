@@ -24,27 +24,30 @@ export class RegisterpageComponent implements OnInit {
   }
   register() {
 
-    
+
 
     if (this.registerForm.valid) {
       var acc = this.registerForm.value.acc;
       var use = this.registerForm.value.use;
       var pass = this.registerForm.value.pass;
-      const result = this.dataservice.registerIndata(acc, use, pass);
-      if (result == true) {
-        alert("succesfully registered");
-        this.router.navigateByUrl("")
-      }
-      else {
-        alert("already existing account number, please log in ")
-      }
+      this.dataservice.registerIndata(acc, use, pass)
+        .subscribe((result: any) => {
+          if (result) {
+            alert(result.message);
+            this.router.navigateByUrl("")
+          }
+        },
+          (result) => {
+            alert(result.error.message)
+          }
+        )
     }
-    else{
+    else {
       alert("INVALID FORM")
     }
 
   }
+
+
+
 }
-
-
-

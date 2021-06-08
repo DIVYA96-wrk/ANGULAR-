@@ -13,44 +13,55 @@ export class LoginpageComponent implements OnInit {
 
   aim = "Your perfect banking partner"
 
- 
+
   loginForm = this.fb.group({
     use: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
     acc: ['', [Validators.required, Validators.pattern('[0-9]*')]],
     pass: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]]
   })
 
+  
 
-
-  constructor(private router: Router, private dataservice: DataserviceService,private  fb: FormBuilder) { }
+  constructor(private router: Router, private dataservice: DataserviceService, private fb: FormBuilder) { 
+ 
+  }
 
   ngOnInit(): void {
   }
   login() {
 
     if (this.loginForm.valid) {
-    var acno = this.loginForm.value.acc;
-    var pswd = this.loginForm.value.pass;
-    var uname = this.loginForm.value.use;
-    console.log(acno, pswd);
+      var acc = this.loginForm.value.acc;
+      var use = this.loginForm.value.use;
+      var pass = this.loginForm.value.pass;
+      console.log(acc, pass);
 
 
-    const result = this.dataservice.loginIndata(acno, uname, pswd)
-
-    if (result) {
-      alert("login succes");
-      this.router.navigateByUrl('dashboard');
+      this.dataservice.loginIndata(acc, use, pass)
+        .subscribe((result: any) =>{
+        if (result) {
+          localStorage.setItem("name",result.namee);
+          localStorage.setItem("acno",result.acno);
+          alert(result.message);
+        this.router.navigateByUrl('dashboard');
+        }
+      }
+        ,
+      (result) => {
+        alert(result.error.message)
+      }
+       )
     }
 
 
-  } 
-else{
-  alert("invalid form")
-}}
+    else {
+      alert("invalid form")
+    } }
+  
 
   register() {
     this.router.navigateByUrl("register page")
-  }
+  } }
 
   /* accChange(event:any){
      this.acc=event.target.value;
@@ -70,4 +81,4 @@ else{
      
    }  */
 
-}
+
