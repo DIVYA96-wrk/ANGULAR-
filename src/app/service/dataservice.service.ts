@@ -1,6 +1,7 @@
 import { registerLocaleData } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment'
 
 
 @Injectable({
@@ -43,7 +44,7 @@ export class DataserviceService {
   registerIndata(acc: any, use: any, pass: any) {
 
     const data = { acc, use, pass }
-    return this.http.post("http://localhost:3000/register", data)
+    return this.http.post(environment.apiUrl + "/register", data)
 
   }
 
@@ -51,24 +52,24 @@ export class DataserviceService {
   loginIndata(acc: any, use: any, pass: any) {
 
     const dataa = { acc, use, pass, }
-    return this.http.post("http://localhost:3000/login", dataa, this.option)
+    return this.http.post(environment.apiUrl + "/login", dataa, this.option)
 
   }
 
   deposit(acc: any, pass: any, amt: any) {
     const dataa = { acc, pass, amt }
-    return this.http.post("http://localhost:3000/deposit", dataa, this.option)
+    return this.http.post(environment.apiUrl + "/deposit", dataa, this.option)
   }
 
 
 
   withdraw(acc: any, pass: any, amt: any) {
     const dataa = { acc, pass, amt }
-    return this.http.post("http://localhost:3000/withdraw", dataa, this.option)
+    return this.http.post(environment.apiUrl + "/withdraw", dataa, this.option)
   }
 
   deleteAccDetails(acc: any) {
-    return this.http.delete("http://localhost:3000/deleteAccount/" + acc, this.option)
+    return this.http.delete(environment.apiUrl + "/deleteAccount/" + acc, this.option)
 
 
   }
